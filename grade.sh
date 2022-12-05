@@ -16,6 +16,13 @@ cp student-submission/ListExamples.java ./
 
 javac -cp $CPATH *.java
 
+if [[ $? -ne 0 ]]
+then
+ echo 'Failed to compile, 0/4'
+fi
+set -e
+
+
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > junit-output.txt
 
 # The strategy used here relies on the last few lines of JUnit output, which
